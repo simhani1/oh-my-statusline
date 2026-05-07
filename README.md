@@ -2,21 +2,49 @@
 
 Claude Code statusline 설치 가이드입니다. 컨텍스트가 80% 넘어가도 “아직 괜찮겠지” 하다가 대화가 김치찌개처럼 푹 끓어버리는 일을 줄여줍니다.
 
-기본형:
+## 테마 소개
 
+`symbols`: 가장 담백한 기본형입니다. 일단 일해야 하는데 statusline이 너무 말 걸면 곤란한 사람용입니다.
+
+```text
 ⌘ Sonnet 4.5 │ ⌥ project │ ⏎ main* │ Ctx 84k/200k 42% │ good
+```
 
-이모지형:
+`emoji`: 맥 기본 이모지로 적당히 귀엽게 갑니다. 컨텍스트가 차오르면 커피 내려놓고 슬슬 자세 고칠 때입니다.
 
+```text
 🧠 Sonnet 4.5 │ 🛘 project │ 🍪 main* │ 💬 84k/200k 42% │ ☕ all good
+```
 
-우주선 계기판형:
+`space`: 별의 탄생부터 사건의 지평선까지 갑니다. 컨텍스트 80% 넘으면 우주적 정신승리 금지입니다.
 
+```text
 🚀 Sonnet 4.5 │ 🪐 project │ 🌌 main* │ 🛰️ Ctx 84k/200k 42% │ 🌌 star birth
+```
 
-장난감 상자형:
+`neon`: 도심 네온 사인 같은 버전입니다. 시그널이 깨끗한지, 시스템이 뜨거워지는지 바로 보입니다.
 
+```text
+💎 Sonnet 4.5 │ 🏙️ project │ ⚡ main* │ 📡 84k/200k 42% │ 🟢 signal clean
+```
+
+`cafe`: 카페 테이블 버전입니다. 아직 따뜻하면 계속 가고, closing time이면 이제 정리각입니다.
+
+```text
+☕ Sonnet 4.5 │ 🧁 project │ 🥄 main* │ 🫖 84k/200k 42% │ 🍵 still warm
+```
+
+`lab`: 실험실 버전입니다. 샘플이 안정적인지, 반응이 과열되는지 보는 쪽입니다.
+
+```text
+🧪 Sonnet 4.5 │ 🔬 project │ 🧬 main* │ 🧫 84k/200k 42% │ ✅ sample stable
+```
+
+`toybox`: 장난감 상자 버전입니다. playtime으로 시작해서 toy box full까지 갑니다. 귀여운데 경고는 합니다.
+
+```text
 🤠 Sonnet 4.5 │ 🧸 project │ 🧩 main* │ 🚀 Ctx 84k/200k 42% │ 🪀 playtime
+```
 
 ## 1. Claude Code 플러그인으로 설치
 
