@@ -1,0 +1,24 @@
+<svg width="1280" height="640" viewBox="0 0 1280 640" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1280" height="640" rx="36" fill="#0B1020"/>
+  <rect x="54" y="54" width="1172" height="532" rx="28" fill="#101827" stroke="#26324A" stroke-width="2"/>
+  <circle cx="96" cy="95" r="9" fill="#FF5F57"/>
+  <circle cx="126" cy="95" r="9" fill="#FFBD2E"/>
+  <circle cx="156" cy="95" r="9" fill="#28C840"/>
+  <text x="92" y="169" fill="#A8B3CF" font-family="SFMono-Regular, Menlo, Consolas, monospace" font-size="26">claude code statusline</text>
+  <text x="92" y="239" fill="#F8FAFC" font-family="SFMono-Regular, Menlo, Consolas, monospace" font-size="54" font-weight="700">oh-my-statusline</text>
+  <text x="92" y="296" fill="#9AA7BD" font-family="SFMono-Regular, Menlo, Consolas, monospace" font-size="26">컨텍스트 눈치 챙겨주는 한 줄짜리 비서</text>
+  <rect x="92" y="351" width="1096" height="92" rx="20" fill="#080C16" stroke="#28354E"/>
+  <text x="126" y="409" fill="#F8FAFC" font-family="SFMono-Regular, Menlo, Consolas, monospace" font-size="32">🧠 Sonnet 4.5 │ 💼 project │ 🌱 main* │ 🪟 84k/200k 42% │</text>
+  <text x="1004" y="409" fill="#22C55E" font-family="SFMono-Regular, Menlo, Consolas, monospace" font-size="32" font-weight="700">✅ good</text>
+  <g transform="translate(92 486)">
+    <rect width="190" height="54" rx="27" fill="#052E16" stroke="#166534"/>
+    <text x="32" y="36" fill="#86EFAC" font-family="SFMono-Regular, Menlo, Consolas, monospace" font-size="20">good</text>
+    <rect x="214" width="190" height="54" rx="27" fill="#422006" stroke="#A16207"/>
+    <text x="246" y="36" fill="#FDE68A" font-family="SFMono-Regular, Menlo, Consolas, monospace" font-size="20">watch</text>
+    <rect x="428" width="250" height="54" rx="27" fill="#431407" stroke="#C2410C"/>
+    <text x="460" y="36" fill="#FDBA74" font-family="SFMono-Regular, Menlo, Consolas, monospace" font-size="20">compact soon</text>
+    <rect x="702" width="250" height="54" rx="27" fill="#450A0A" stroke="#B91C1C"/>
+    <text x="734" y="36" fill="#FCA5A5" font-family="SFMono-Regular, Menlo, Consolas, monospace" font-size="20">compact now</text>
+  </g>
+  <text x="1008" y="540" fill="#64748B" font-family="SFMono-Regular, Menlo, Consolas, monospace" font-size="18">K-status, but useful</text>
+</svg>
