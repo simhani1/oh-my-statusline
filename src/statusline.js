@@ -24,12 +24,12 @@ const ICON_SETS = {
   },
   emoji: {
     model: "🧠",
-    project: "💼",
-    git: "🌱",
+    project: "🛘",
+    git: "🍪",
     context: "🪟",
     status: {
       good: "☕ good",
-      watch: "🪑 watch",
+      watch: "👀 watch",
       compactSoon: "🧹 compact soon",
       compactNow: "🚨 compact now"
     }

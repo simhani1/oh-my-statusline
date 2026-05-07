@@ -44,5 +44,5 @@ test("renders emoji icon set", () => {
     }
   }, { color: false, icons: "emoji" });
 
-  assert.equal(output, "🧠 Sonnet 4.5 │ 💼 oh-my-statusline │ 🌱 main* │ 🪟 124k/200k 62% │ 🪑 watch");
+  assert.equal(output, "🧠 Sonnet 4.5 │ 🛘 oh-my-statusline │ 🍪 main* │ 🪟 124k/200k 62% │ 👀 watch");
 });
