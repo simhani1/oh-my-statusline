@@ -9,9 +9,10 @@ Steps:
    - `neon`: `💎 Sonnet 4.5 │ 🏙️ project │ ⚡ main* │ 📡 84k/200k 42% │ 🟢 signal clean`
    - `cafe`: `☕ Sonnet 4.5 │ 🧁 project │ 🥄 main* │ 🫖 84k/200k 42% │ 🍵 still warm`
    - `lab`: `🧪 Sonnet 4.5 │ 🔬 project │ 🧬 main* │ 🧫 84k/200k 42% │ ✅ sample stable`
+   - `toybox`: `🤠 Sonnet 4.5 │ 🧸 project │ 🧩 main* │ 🚀 Ctx 84k/200k 42% │ 🪀 playtime`
 2. Run the matching shell command. Prefer the plugin-local installer so this works even when the npm package is not installed globally.
 
-   Replace `space` with the selected theme: `symbols`, `emoji`, `space`, `neon`, `cafe`, or `lab`.
+   Replace `space` with the selected theme: `symbols`, `emoji`, `space`, `neon`, `cafe`, `lab`, or `toybox`.
 
    ```sh
    if [ -n "$CLAUDE_PLUGIN_ROOT" ]; then

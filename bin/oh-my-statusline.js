@@ -21,7 +21,7 @@ Usage:
   oh-my-statusline < claude-statusline-input.json
 
 Options:
-  --theme NAME  Theme: symbols, emoji, space, neon, cafe, lab
+  --theme NAME  Theme: symbols, emoji, space, neon, cafe, lab, toybox
   --icons NAME  Backward-compatible alias for --theme
   --no-color   Disable ANSI colors
   --version    Print version

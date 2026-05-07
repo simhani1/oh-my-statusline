@@ -82,13 +82,15 @@ async function resolveTheme() {
     console.log("  4) neon     💎 Sonnet 4.5 │ 🏙️ project │ ⚡ main* │ 📡 84k/200k 42% │ 🟢 signal clean");
     console.log("  5) cafe     ☕ Sonnet 4.5 │ 🧁 project │ 🥄 main* │ 🫖 84k/200k 42% │ 🍵 still warm");
     console.log("  6) lab      🧪 Sonnet 4.5 │ 🔬 project │ 🧬 main* │ 🧫 84k/200k 42% │ ✅ sample stable");
-    const answer = (await rl.question("Select 1-6 [1]: ")).trim().toLowerCase();
+    console.log("  7) toybox   🤠 Sonnet 4.5 │ 🧸 project │ 🧩 main* │ 🚀 Ctx 84k/200k 42% │ 🪀 playtime");
+    const answer = (await rl.question("Select 1-7 [1]: ")).trim().toLowerCase();
     if (answer === "" || answer === "1" || answer === "symbols" || answer === "symbol") return "symbols";
     if (answer === "2" || answer === "emoji") return "emoji";
     if (answer === "3" || answer === "space") return "space";
     if (answer === "4" || answer === "neon") return "neon";
     if (answer === "5" || answer === "cafe") return "cafe";
     if (answer === "6" || answer === "lab") return "lab";
+    if (answer === "7" || answer === "toybox" || answer === "toy") return "toybox";
     console.log("Unknown choice. Using symbols.");
     return "symbols";
   } finally {
@@ -97,8 +99,8 @@ async function resolveTheme() {
 }
 
 function validateTheme(value) {
-  if (["symbols", "emoji", "space", "neon", "cafe", "lab"].includes(value)) return value;
-  throw new Error(`Invalid theme value: ${value}. Use symbols, emoji, space, neon, cafe, or lab.`);
+  if (["symbols", "emoji", "space", "neon", "cafe", "lab", "toybox"].includes(value)) return value;
+  throw new Error(`Invalid theme value: ${value}. Use symbols, emoji, space, neon, cafe, lab, or toybox.`);
 }
 
 function joinCommand(parts) {

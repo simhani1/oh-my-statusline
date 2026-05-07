@@ -68,4 +68,8 @@ test("renders themed statuslines", () => {
     renderStatusline(input, { color: false, theme: "neon" }),
     "💎 Sonnet 4.5 │ 🏙️ oh-my-statusline │ ⚡ main* │ 📡 152k/200k 76% │ 🟠 reroute soon"
   );
+  assert.equal(
+    renderStatusline(input, { color: false, theme: "toybox" }),
+    "🤠 Sonnet 4.5 │ 🧸 oh-my-statusline │ 🧩 main* │ 🚀 Ctx 152k/200k 76% │ 📦 tidy soon"
+  );
 });

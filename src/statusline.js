@@ -81,6 +81,18 @@ const THEMES = {
       compactSoon: "⚠️ stabilize soon",
       compactNow: "🧯 contain now"
     }
+  },
+  toybox: {
+    model: "🤠",
+    project: "🧸",
+    git: "🧩",
+    context: "🚀 Ctx",
+    status: {
+      good: "🪀 playtime",
+      watch: "👀 toys awake",
+      compactSoon: "📦 tidy soon",
+      compactNow: "🚨 toy box full"
+    }
   }
 };
 
