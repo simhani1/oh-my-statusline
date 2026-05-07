@@ -28,10 +28,10 @@ const ICON_SETS = {
     git: "🌱",
     context: "🪟",
     status: {
-      good: "✅ good",
-      watch: "🟡 watch",
-      compactSoon: "🟠 compact soon",
-      compactNow: "🔴 compact now"
+      good: "☕ good",
+      watch: "🪑 watch",
+      compactSoon: "🧹 compact soon",
+      compactNow: "🚨 compact now"
     }
   }
 };
