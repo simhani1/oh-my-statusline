@@ -10,9 +10,10 @@ const argv = process.argv.slice(2);
 const args = new Set(argv);
 const explicitCommand = readValueArg(argv, "--command");
 const icons = readValueArg(argv, "--icons");
+const bar = readValueArg(argv, "--bar");
 const command = explicitCommand || (args.has("--local")
-  ? joinCommand(["node", path.resolve(__dirname, "oh-my-statusline.js"), icons ? `--icons ${icons}` : null])
-  : joinCommand(["npx", "--yes", "oh-my-statusline", icons ? `--icons ${icons}` : null]));
+  ? joinCommand(["node", path.resolve(__dirname, "oh-my-statusline.js"), optionArg("--icons", icons), optionArg("--bar", bar)])
+  : joinCommand(["npx", "--yes", "oh-my-statusline", optionArg("--icons", icons), optionArg("--bar", bar)]));
 
 fs.mkdirSync(settingsDir, { recursive: true });
 
@@ -57,4 +58,8 @@ function readValueArg(argv, name) {
 
 function joinCommand(parts) {
   return parts.filter(Boolean).join(" ");
+}
+
+function optionArg(name, value) {
+  return value ? `${name} ${value}` : null;
 }

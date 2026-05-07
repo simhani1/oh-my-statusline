@@ -6,6 +6,7 @@ const { version } = require("../package.json");
 const argv = process.argv.slice(2);
 const args = new Set(argv);
 const icons = readValueArg(argv, "--icons") || process.env.OH_MY_STATUSLINE_ICONS || "symbols";
+const bar = readValueArg(argv, "--bar") || process.env.OH_MY_STATUSLINE_BAR || "none";
 
 if (args.has("--help") || args.has("-h")) {
   process.stdout.write(`oh-my-statusline ${version}
@@ -17,6 +18,7 @@ Usage:
 
 Options:
   --icons NAME  Icon set: symbols, emoji
+  --bar NAME    Context bar: none, block, emoji
   --no-color   Disable ANSI colors
   --version    Print version
   --help       Print help
@@ -40,7 +42,7 @@ process.stdin.on("end", () => {
   try {
     const data = input.trim() ? JSON.parse(input) : {};
     const color = !args.has("--no-color") && !process.env.NO_COLOR;
-    process.stdout.write(`${renderStatusline(data, { color, icons })}\n`);
+    process.stdout.write(`${renderStatusline(data, { color, icons, bar })}\n`);
   } catch (error) {
     process.stdout.write("⌘ Claude │ Ctx -- │ unavailable\n");
   }

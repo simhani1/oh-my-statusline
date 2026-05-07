@@ -39,11 +39,12 @@ const ICON_SETS = {
 function renderStatusline(data, options = {}) {
   const color = options.color !== false;
   const icons = getIconSet(options.icons);
+  const bar = getBarSet(options.bar);
   const model = readString(data, ["model", "display_name"]) || readString(data, ["model", "id"]) || "Claude";
   const cwd = readString(data, ["workspace", "current_dir"]) || readString(data, ["cwd"]) || "";
   const project = basename(cwd) || "project";
   const git = getGitSegment(data, cwd, options);
-  const context = getContextSegment(data, color, icons);
+  const context = getContextSegment(data, color, icons, bar);
 
   return joinSegments([
     `${icons.model} ${model}`,
@@ -94,7 +95,7 @@ function runGit(cwd, args) {
   }
 }
 
-function getContextSegment(data, color, icons) {
+function getContextSegment(data, color, icons, bar) {
   const context = data.context_window || {};
   const percent = numberOrNull(context.used_percentage);
   const size = numberOrNull(context.context_window_size);
@@ -111,8 +112,13 @@ function getContextSegment(data, color, icons) {
   const usedLabel = used !== null ? compactTokens(used) : compactTokens(Math.round((size || 0) * normalizedPercent / 100));
   const status = getContextStatus(normalizedPercent);
   const statusLabel = colorize(icons.status[status.key], status.color, color);
+  const barLabel = renderBar(normalizedPercent, bar);
 
-  return `${icons.context} ${usedLabel}/${totalLabel} ${normalizedPercent}% │ ${statusLabel}`;
+  return [
+    `${icons.context} ${usedLabel}/${totalLabel}`,
+    barLabel,
+    `${normalizedPercent}%`
+  ].filter(Boolean).join(" ") + ` │ ${statusLabel}`;
 }
 
 function getContextStatus(percent) {
@@ -124,6 +130,23 @@ function getContextStatus(percent) {
 
 function getIconSet(name) {
   return ICON_SETS[name] || ICON_SETS.symbols;
+}
+
+function getBarSet(name) {
+  if (name === "block") {
+    return { width: 8, filled: "█", empty: "░" };
+  }
+  if (name === "emoji") {
+    return { width: 5, filled: "🟩", empty: "⬜" };
+  }
+  return null;
+}
+
+function renderBar(percent, bar) {
+  if (!bar) return "";
+  const filled = clamp(Math.round((percent / 100) * bar.width), 0, bar.width);
+  const empty = bar.width - filled;
+  return `${bar.filled.repeat(filled)}${bar.empty.repeat(empty)}`;
 }
 
 function joinSegments(segments, color) {
@@ -203,5 +226,7 @@ module.exports = {
   renderStatusline,
   getContextStatus,
   compactTokens,
-  getIconSet
+  getIconSet,
+  getBarSet,
+  renderBar
 };
