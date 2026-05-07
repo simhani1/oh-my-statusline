@@ -78,7 +78,7 @@ async function resolveTheme() {
     console.log("Choose a statusline theme:");
     console.log("  1) symbols  ⌘ Sonnet 4.5 │ ⌥ project │ ⏎ main* │ Ctx 84k/200k 42% │ good");
     console.log("  2) emoji    🧠 Sonnet 4.5 │ 🛘 project │ 🍪 main* │ 💬 84k/200k 42% │ ☕ all good");
-    console.log("  3) space    🚀 Sonnet 4.5 │ 🪐 project │ 🌌 main* │ 🛰️ 84k/200k 42% │ ✨ stable orbit");
+    console.log("  3) space    🚀 Sonnet 4.5 │ 🪐 project │ 🌌 main* │ 🛰️ Ctx 84k/200k 42% │ 🌌 star birth");
     console.log("  4) neon     💎 Sonnet 4.5 │ 🏙️ project │ ⚡ main* │ 📡 84k/200k 42% │ 🟢 signal clean");
     console.log("  5) cafe     ☕ Sonnet 4.5 │ 🧁 project │ 🥄 main* │ 🫖 84k/200k 42% │ 🍵 still warm");
     console.log("  6) lab      🧪 Sonnet 4.5 │ 🔬 project │ 🧬 main* │ 🧫 84k/200k 42% │ ✅ sample stable");

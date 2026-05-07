@@ -38,12 +38,12 @@ const THEMES = {
     model: "🚀",
     project: "🪐",
     git: "🌌",
-    context: "🛰️",
+    context: "🛰️ Ctx",
     status: {
-      good: "✨ stable orbit",
-      watch: "☄️ meteor watch",
-      compactSoon: "🛸 prepare jump",
-      compactNow: "🔴 black hole"
+      good: "🌌 star birth",
+      watch: "🌟 core heating",
+      compactSoon: "💥 supernova soon",
+      compactNow: "🕳️ event horizon"
     }
   },
   neon: {

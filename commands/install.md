@@ -5,7 +5,7 @@ Steps:
 1. Ask the user which theme they want:
    - `symbols`: `⌘ Sonnet 4.5 │ ⌥ project │ ⏎ main* │ Ctx 84k/200k 42% │ good`
    - `emoji`: `🧠 Sonnet 4.5 │ 🛘 project │ 🍪 main* │ 💬 84k/200k 42% │ ☕ good`
-   - `space`: `🚀 Sonnet 4.5 │ 🪐 project │ 🌌 main* │ 🛰️ 84k/200k 42% │ ✨ stable orbit`
+   - `space`: `🚀 Sonnet 4.5 │ 🪐 project │ 🌌 main* │ 🛰️ Ctx 84k/200k 42% │ 🌌 star birth`
    - `neon`: `💎 Sonnet 4.5 │ 🏙️ project │ ⚡ main* │ 📡 84k/200k 42% │ 🟢 signal clean`
    - `cafe`: `☕ Sonnet 4.5 │ 🧁 project │ 🥄 main* │ 🫖 84k/200k 42% │ 🍵 still warm`
    - `lab`: `🧪 Sonnet 4.5 │ 🔬 project │ 🧬 main* │ 🧫 84k/200k 42% │ ✅ sample stable`

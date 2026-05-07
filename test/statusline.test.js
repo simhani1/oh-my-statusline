@@ -62,7 +62,7 @@ test("renders themed statuslines", () => {
 
   assert.equal(
     renderStatusline(input, { color: false, theme: "space" }),
-    "🚀 Sonnet 4.5 │ 🪐 oh-my-statusline │ 🌌 main* │ 🛰️ 152k/200k 76% │ 🛸 prepare jump"
+    "🚀 Sonnet 4.5 │ 🪐 oh-my-statusline │ 🌌 main* │ 🛰️ Ctx 152k/200k 76% │ 💥 supernova soon"
   );
   assert.equal(
     renderStatusline(input, { color: false, theme: "neon" }),
