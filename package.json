@@ -25,7 +25,6 @@
   ],
   "license": "MIT",
   "files": [
-    "assets/",
     "bin/",
     "src/",
     "README.md",

@@ -1,7 +1,5 @@
 # oh-my-statusline
 
-![oh-my-statusline thumbnail](assets/thumbnail.svg)
-
 Claude Code statusline 설치 가이드입니다. 컨텍스트가 80% 넘어가도 “아직 괜찮겠지” 하다가 대화가 김치찌개처럼 푹 끓어버리는 일을 줄여줍니다.
 
 기본형:
