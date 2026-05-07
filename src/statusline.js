@@ -28,9 +28,9 @@ const ICON_SETS = {
     git: "🍪",
     context: "💬",
     status: {
-      good: "☕ good",
-      watch: "👀 watch",
-      compactSoon: "🧹 compact soon",
+      good: "☕ all good",
+      watch: "👀 watch context",
+      compactSoon: "🧹 clean soon",
       compactNow: "🚨 compact now"
     }
   }
