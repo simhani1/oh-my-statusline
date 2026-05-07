@@ -72,6 +72,14 @@ Claude Code 안에서 설치 command를 실행합니다.
 
 만약 설치 command에서 `command not found: oh-my-statusline-install`이 뜨면 예전 버전의 플러그인 command를 실행한 겁니다. 플러그인을 업데이트하고 `/reload-plugins` 후 다시 실행하세요. 새 버전은 전역 명령어를 찾지 않고 플러그인 내부 installer를 직접 실행합니다. 길을 잃은 조개껍데기 PATH를 믿지 않습니다.
 
+설치 후 테마만 바꾸고 싶으면:
+
+```text
+/oh-my-statusline:theme
+```
+
+다시 테마를 고르고 `statusLine` 설정을 덮어씁니다. 백업은 똑같이 만들어집니다.
+
 ## 2. npm으로 바로 설치
 
 플러그인 말고 그냥 빠르게 깔고 싶으면 아래 명령을 쓰면 됩니다.
@@ -127,6 +135,12 @@ Claude Code 안에서:
 
 ```text
 /oh-my-statusline:install
+```
+
+테마만 다시 고르려면:
+
+```text
+/oh-my-statusline:theme
 ```
 
 ## 4. 상태 라벨
