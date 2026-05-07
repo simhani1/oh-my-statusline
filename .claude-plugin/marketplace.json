@@ -1,0 +1,27 @@
+{
+  "name": "oh-my-statusline-marketplace",
+  "owner": {
+    "name": "simhani1"
+  },
+  "metadata": {
+    "description": "Claude Code statusline plugins by simhani1."
+  },
+  "plugins": [
+    {
+      "name": "oh-my-statusline",
+      "source": {
+        "source": "github",
+        "repo": "simhani1/oh-my-statusline"
+      },
+      "description": "A compact Claude Code statusline focused on context window usage and compact timing.",
+      "homepage": "https://github.com/simhani1/oh-my-statusline",
+      "repository": "https://github.com/simhani1/oh-my-statusline",
+      "license": "MIT",
+      "keywords": [
+        "statusline",
+        "context",
+        "claude-code"
+      ]
+    }
+  ]
+}

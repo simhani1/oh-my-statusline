@@ -25,7 +25,9 @@
   ],
   "license": "MIT",
   "files": [
+    ".claude-plugin/",
     "bin/",
+    "commands/",
     "src/",
     "README.md",
     "LICENSE"
