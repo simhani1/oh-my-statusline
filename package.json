@@ -1,0 +1,36 @@
+{
+  "name": "oh-my-statusline",
+  "version": "0.1.0",
+  "description": "A compact Claude Code statusline with context window guidance.",
+  "homepage": "https://github.com/simhani1/oh-my-statusline#readme",
+  "bugs": {
+    "url": "https://github.com/simhani1/oh-my-statusline/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/simhani1/oh-my-statusline.git"
+  },
+  "bin": {
+    "oh-my-statusline": "bin/oh-my-statusline.js",
+    "oh-my-statusline-install": "bin/install.js"
+  },
+  "scripts": {
+    "test": "node --test",
+    "prepack": "npm test"
+  },
+  "keywords": [
+    "claude-code",
+    "statusline",
+    "cli"
+  ],
+  "license": "MIT",
+  "files": [
+    "bin/",
+    "src/",
+    "README.md",
+    "LICENSE"
+  ],
+  "engines": {
+    "node": ">=18"
+  }
+}
