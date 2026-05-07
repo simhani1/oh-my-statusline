@@ -9,7 +9,7 @@ const ANSI = {
   red: "\x1b[31m"
 };
 
-const ICON_SETS = {
+const THEMES = {
   symbols: {
     model: "⌘",
     project: "⌥",
@@ -33,12 +33,60 @@ const ICON_SETS = {
       compactSoon: "🧹 clean soon",
       compactNow: "🚨 compact now"
     }
+  },
+  space: {
+    model: "🚀",
+    project: "🪐",
+    git: "🌌",
+    context: "🛰️",
+    status: {
+      good: "✨ stable orbit",
+      watch: "☄️ meteor watch",
+      compactSoon: "🛸 prepare jump",
+      compactNow: "🔴 black hole"
+    }
+  },
+  neon: {
+    model: "💎",
+    project: "🏙️",
+    git: "⚡",
+    context: "📡",
+    status: {
+      good: "🟢 signal clean",
+      watch: "🟡 noise rising",
+      compactSoon: "🟠 reroute soon",
+      compactNow: "🔴 system hot"
+    }
+  },
+  cafe: {
+    model: "☕",
+    project: "🧁",
+    git: "🥄",
+    context: "🫖",
+    status: {
+      good: "🍵 still warm",
+      watch: "🥤 refill soon",
+      compactSoon: "🧽 clean table",
+      compactNow: "🚨 closing time"
+    }
+  },
+  lab: {
+    model: "🧪",
+    project: "🔬",
+    git: "🧬",
+    context: "🧫",
+    status: {
+      good: "✅ sample stable",
+      watch: "👀 reaction watch",
+      compactSoon: "⚠️ stabilize soon",
+      compactNow: "🧯 contain now"
+    }
   }
 };
 
 function renderStatusline(data, options = {}) {
   const color = options.color !== false;
-  const icons = getIconSet(options.icons);
+  const icons = getTheme(options.theme || options.icons);
   const model = readString(data, ["model", "display_name"]) || readString(data, ["model", "id"]) || "Claude";
   const cwd = readString(data, ["workspace", "current_dir"]) || readString(data, ["cwd"]) || "";
   const project = basename(cwd) || "project";
@@ -122,8 +170,12 @@ function getContextStatus(percent) {
   return { key: "good", label: "good", color: "green" };
 }
 
+function getTheme(name) {
+  return THEMES[name] || THEMES.symbols;
+}
+
 function getIconSet(name) {
-  return ICON_SETS[name] || ICON_SETS.symbols;
+  return getTheme(name);
 }
 
 function joinSegments(segments, color) {
@@ -203,5 +255,7 @@ module.exports = {
   renderStatusline,
   getContextStatus,
   compactTokens,
-  getIconSet
+  getIconSet,
+  getTheme,
+  THEMES
 };

@@ -46,3 +46,26 @@ test("renders emoji icon set", () => {
 
   assert.equal(output, "🧠 Sonnet 4.5 │ 🛘 oh-my-statusline │ 🍪 main* │ 💬 124k/200k 62% │ 👀 watch context");
 });
+
+test("renders themed statuslines", () => {
+  const input = {
+    model: { display_name: "Sonnet 4.5" },
+    workspace: { current_dir: "/Users/me/source/oh-my-statusline" },
+    git: { branch: "main", dirty: true },
+    context_window: {
+      total_input_tokens: 150000,
+      total_output_tokens: 2000,
+      context_window_size: 200000,
+      used_percentage: 76
+    }
+  };
+
+  assert.equal(
+    renderStatusline(input, { color: false, theme: "space" }),
+    "🚀 Sonnet 4.5 │ 🪐 oh-my-statusline │ 🌌 main* │ 🛰️ 152k/200k 76% │ 🛸 prepare jump"
+  );
+  assert.equal(
+    renderStatusline(input, { color: false, theme: "neon" }),
+    "💎 Sonnet 4.5 │ 🏙️ oh-my-statusline │ ⚡ main* │ 📡 152k/200k 76% │ 🟠 reroute soon"
+  );
+});

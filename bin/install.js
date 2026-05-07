@@ -17,10 +17,10 @@ main().catch((error) => {
 
 async function main() {
   const explicitCommand = readValueArg(argv, "--command");
-  const icons = explicitCommand ? null : await resolveIcons();
+  const theme = explicitCommand ? null : await resolveTheme();
   const command = explicitCommand || (args.has("--local")
-    ? joinCommand(["node", path.resolve(__dirname, "oh-my-statusline.js"), optionArg("--icons", icons)])
-    : joinCommand(["npx", "--yes", "oh-my-statusline", optionArg("--icons", icons)]));
+    ? joinCommand(["node", path.resolve(__dirname, "oh-my-statusline.js"), optionArg("--theme", theme)])
+    : joinCommand(["npx", "--yes", "oh-my-statusline", optionArg("--theme", theme)]));
 
   fs.mkdirSync(settingsDir, { recursive: true });
 
@@ -64,9 +64,9 @@ function readValueArg(argv, name) {
   return value;
 }
 
-async function resolveIcons() {
-  const selected = readValueArg(argv, "--icons");
-  if (selected) return validateIcons(selected);
+async function resolveTheme() {
+  const selected = readValueArg(argv, "--theme") || readValueArg(argv, "--icons");
+  if (selected) return validateTheme(selected);
   if (args.has("--yes") || !process.stdin.isTTY || !process.stdout.isTTY) return "symbols";
 
   const rl = readline.createInterface({
@@ -75,12 +75,20 @@ async function resolveIcons() {
   });
 
   try {
-    console.log("Choose a statusline style:");
+    console.log("Choose a statusline theme:");
     console.log("  1) symbols  ⌘ Sonnet 4.5 │ ⌥ project │ ⏎ main* │ Ctx 84k/200k 42% │ good");
-    console.log("  2) emoji    🧠 Sonnet 4.5 │ 🛘 project │ 🍪 main* │ 💬 84k/200k 42% │ ☕ good");
-    const answer = (await rl.question("Select 1 or 2 [1]: ")).trim().toLowerCase();
+    console.log("  2) emoji    🧠 Sonnet 4.5 │ 🛘 project │ 🍪 main* │ 💬 84k/200k 42% │ ☕ all good");
+    console.log("  3) space    🚀 Sonnet 4.5 │ 🪐 project │ 🌌 main* │ 🛰️ 84k/200k 42% │ ✨ stable orbit");
+    console.log("  4) neon     💎 Sonnet 4.5 │ 🏙️ project │ ⚡ main* │ 📡 84k/200k 42% │ 🟢 signal clean");
+    console.log("  5) cafe     ☕ Sonnet 4.5 │ 🧁 project │ 🥄 main* │ 🫖 84k/200k 42% │ 🍵 still warm");
+    console.log("  6) lab      🧪 Sonnet 4.5 │ 🔬 project │ 🧬 main* │ 🧫 84k/200k 42% │ ✅ sample stable");
+    const answer = (await rl.question("Select 1-6 [1]: ")).trim().toLowerCase();
     if (answer === "" || answer === "1" || answer === "symbols" || answer === "symbol") return "symbols";
     if (answer === "2" || answer === "emoji") return "emoji";
+    if (answer === "3" || answer === "space") return "space";
+    if (answer === "4" || answer === "neon") return "neon";
+    if (answer === "5" || answer === "cafe") return "cafe";
+    if (answer === "6" || answer === "lab") return "lab";
     console.log("Unknown choice. Using symbols.");
     return "symbols";
   } finally {
@@ -88,9 +96,9 @@ async function resolveIcons() {
   }
 }
 
-function validateIcons(value) {
-  if (value === "symbols" || value === "emoji") return value;
-  throw new Error(`Invalid --icons value: ${value}. Use symbols or emoji.`);
+function validateTheme(value) {
+  if (["symbols", "emoji", "space", "neon", "cafe", "lab"].includes(value)) return value;
+  throw new Error(`Invalid theme value: ${value}. Use symbols, emoji, space, neon, cafe, or lab.`);
 }
 
 function joinCommand(parts) {
