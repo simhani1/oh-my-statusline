@@ -4,6 +4,8 @@ A compact Claude Code statusline focused on context window size and compact timi
 
 ⌘ Sonnet 4.5 │ ⌥ oh-my-statusline │ ⏎ main* │ Ctx 84k/200k 42% │ good
 
+🧠 Sonnet 4.5 │ 💼 oh-my-statusline │ 🌱 main* │ 🪟 84k/200k 42% │ ✅ good
+
 ## Install
 
 After the package is published to npm:
@@ -12,13 +14,19 @@ After the package is published to npm:
 npx --yes oh-my-statusline-install
 ```
 
+Emoji version:
+
+```sh
+npx --yes oh-my-statusline-install --icons emoji
+```
+
 Or add it manually to `~/.claude/settings.json`:
 
 ```json
 {
   "statusLine": {
     "type": "command",
-    "command": "npx --yes oh-my-statusline",
+    "command": "npx --yes oh-my-statusline --icons emoji",
     "padding": 0
   }
 }
@@ -40,6 +48,22 @@ node bin/install.js --local
 ```
 
 `--local` points Claude Code at your checkout. Without `--local`, the installer writes `npx --yes oh-my-statusline` to your Claude Code settings.
+
+## Icon Sets
+
+`symbols` is the default:
+
+⌘ Sonnet 4.5 │ ⌥ project │ ⏎ main* │ Ctx 84k/200k 42% │ good
+
+`emoji` uses macOS-friendly emoji:
+
+🧠 Sonnet 4.5 │ 💼 project │ 🌱 main* │ 🪟 84k/200k 42% │ ✅ good
+
+Use it manually:
+
+```sh
+oh-my-statusline --icons emoji
+```
 
 ## Context Status
 
@@ -71,6 +95,7 @@ Example states:
 ```sh
 oh-my-statusline --help
 oh-my-statusline --version
+oh-my-statusline --icons emoji < input.json
 oh-my-statusline --no-color < input.json
 ```
 

@@ -19,14 +19,30 @@ test("renders the requested compact statusline without color", () => {
 });
 
 test("uses configured context thresholds", () => {
-  assert.deepEqual(getContextStatus(59), { label: "good", color: "green" });
-  assert.deepEqual(getContextStatus(60), { label: "watch", color: "yellow" });
-  assert.deepEqual(getContextStatus(75), { label: "compact soon", color: "orange" });
-  assert.deepEqual(getContextStatus(80), { label: "compact now", color: "red" });
+  assert.deepEqual(getContextStatus(59), { key: "good", label: "good", color: "green" });
+  assert.deepEqual(getContextStatus(60), { key: "watch", label: "watch", color: "yellow" });
+  assert.deepEqual(getContextStatus(75), { key: "compactSoon", label: "compact soon", color: "orange" });
+  assert.deepEqual(getContextStatus(80), { key: "compactNow", label: "compact now", color: "red" });
 });
 
 test("formats token counts compactly", () => {
   assert.equal(compactTokens(84000), "84k");
   assert.equal(compactTokens(200000), "200k");
   assert.equal(compactTokens(1000000), "1M");
+});
+
+test("renders emoji icon set", () => {
+  const output = renderStatusline({
+    model: { display_name: "Sonnet 4.5" },
+    workspace: { current_dir: "/Users/me/source/oh-my-statusline" },
+    git: { branch: "main", dirty: true },
+    context_window: {
+      total_input_tokens: 120000,
+      total_output_tokens: 4000,
+      context_window_size: 200000,
+      used_percentage: 62
+    }
+  }, { color: false, icons: "emoji" });
+
+  assert.equal(output, "🧠 Sonnet 4.5 │ 💼 oh-my-statusline │ 🌱 main* │ 🪟 124k/200k 62% │ 🟡 watch");
 });

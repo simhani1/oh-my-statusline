@@ -6,11 +6,13 @@ const path = require("node:path");
 
 const settingsDir = path.join(os.homedir(), ".claude");
 const settingsPath = path.join(settingsDir, "settings.json");
-const args = new Set(process.argv.slice(2));
-const explicitCommand = readCommandArg(process.argv.slice(2));
+const argv = process.argv.slice(2);
+const args = new Set(argv);
+const explicitCommand = readValueArg(argv, "--command");
+const icons = readValueArg(argv, "--icons");
 const command = explicitCommand || (args.has("--local")
-  ? `node ${path.resolve(__dirname, "oh-my-statusline.js")}`
-  : "npx --yes oh-my-statusline");
+  ? joinCommand(["node", path.resolve(__dirname, "oh-my-statusline.js"), icons ? `--icons ${icons}` : null])
+  : joinCommand(["npx", "--yes", "oh-my-statusline", icons ? `--icons ${icons}` : null]));
 
 fs.mkdirSync(settingsDir, { recursive: true });
 
@@ -42,13 +44,17 @@ function backupSettings(filePath) {
   return backupPath;
 }
 
-function readCommandArg(argv) {
-  const index = argv.indexOf("--command");
+function readValueArg(argv, name) {
+  const index = argv.indexOf(name);
   if (index === -1) return null;
   const value = argv[index + 1];
   if (!value) {
-    console.error("Missing value for --command");
+    console.error(`Missing value for ${name}`);
     process.exit(1);
   }
   return value;
+}
+
+function joinCommand(parts) {
+  return parts.filter(Boolean).join(" ");
 }

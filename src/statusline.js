@@ -9,18 +9,46 @@ const ANSI = {
   red: "\x1b[31m"
 };
 
+const ICON_SETS = {
+  symbols: {
+    model: "⌘",
+    project: "⌥",
+    git: "⏎",
+    context: "Ctx",
+    status: {
+      good: "good",
+      watch: "watch",
+      compactSoon: "compact soon",
+      compactNow: "compact now"
+    }
+  },
+  emoji: {
+    model: "🧠",
+    project: "💼",
+    git: "🌱",
+    context: "🪟",
+    status: {
+      good: "✅ good",
+      watch: "🟡 watch",
+      compactSoon: "🟠 compact soon",
+      compactNow: "🔴 compact now"
+    }
+  }
+};
+
 function renderStatusline(data, options = {}) {
   const color = options.color !== false;
+  const icons = getIconSet(options.icons);
   const model = readString(data, ["model", "display_name"]) || readString(data, ["model", "id"]) || "Claude";
   const cwd = readString(data, ["workspace", "current_dir"]) || readString(data, ["cwd"]) || "";
   const project = basename(cwd) || "project";
   const git = getGitSegment(data, cwd, options);
-  const context = getContextSegment(data, color);
+  const context = getContextSegment(data, color, icons);
 
   return joinSegments([
-    `⌘ ${model}`,
-    `⌥ ${project}`,
-    git ? `⏎ ${git}` : null,
+    `${icons.model} ${model}`,
+    `${icons.project} ${project}`,
+    git ? `${icons.git} ${git}` : null,
     context
   ], color);
 }
@@ -66,7 +94,7 @@ function runGit(cwd, args) {
   }
 }
 
-function getContextSegment(data, color) {
+function getContextSegment(data, color, icons) {
   const context = data.context_window || {};
   const percent = numberOrNull(context.used_percentage);
   const size = numberOrNull(context.context_window_size);
@@ -82,16 +110,20 @@ function getContextSegment(data, color) {
   const totalLabel = size !== null ? compactTokens(size) : "?";
   const usedLabel = used !== null ? compactTokens(used) : compactTokens(Math.round((size || 0) * normalizedPercent / 100));
   const status = getContextStatus(normalizedPercent);
-  const statusLabel = colorize(status.label, status.color, color);
+  const statusLabel = colorize(icons.status[status.key], status.color, color);
 
-  return `Ctx ${usedLabel}/${totalLabel} ${normalizedPercent}% │ ${statusLabel}`;
+  return `${icons.context} ${usedLabel}/${totalLabel} ${normalizedPercent}% │ ${statusLabel}`;
 }
 
 function getContextStatus(percent) {
-  if (percent >= 80) return { label: "compact now", color: "red" };
-  if (percent >= 75) return { label: "compact soon", color: "orange" };
-  if (percent >= 60) return { label: "watch", color: "yellow" };
-  return { label: "good", color: "green" };
+  if (percent >= 80) return { key: "compactNow", label: "compact now", color: "red" };
+  if (percent >= 75) return { key: "compactSoon", label: "compact soon", color: "orange" };
+  if (percent >= 60) return { key: "watch", label: "watch", color: "yellow" };
+  return { key: "good", label: "good", color: "green" };
+}
+
+function getIconSet(name) {
+  return ICON_SETS[name] || ICON_SETS.symbols;
 }
 
 function joinSegments(segments, color) {
@@ -170,5 +202,6 @@ function trimFixed(value, digits) {
 module.exports = {
   renderStatusline,
   getContextStatus,
-  compactTokens
+  compactTokens,
+  getIconSet
 };
