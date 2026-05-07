@@ -11,4 +11,8 @@ if ! command -v npx >/dev/null 2>&1; then
   exit 1
 fi
 
-npx --yes oh-my-statusline-install
+if [ -r /dev/tty ] && [ -w /dev/tty ]; then
+  npx --yes oh-my-statusline-install "$@" < /dev/tty
+else
+  npx --yes oh-my-statusline-install --yes "$@"
+fi
