@@ -88,7 +88,7 @@ node bin/install.js --local
 - `compact soon`: 75-79%
 - `compact now`: 80% 이상
 
-이모지 모드에서는 `☕ good`, `👀 watch`, `🧹 compact soon`, `🚨 compact now`로 표시됩니다. 대충 `good`이면 커피 마셔도 되고, `watch`면 슬슬 눈치 보고, `compact soon`이면 정리각, `compact now`면 더 이상 정신승리 금지입니다.
+이모지 모드에서는 `☕ good`, `👀 watch`, `🧹 compact soon`, `🚨 compact now`로 표시됩니다. 상태 메시지는 영어 그대로 둡니다. 커피, 눈치, 청소, 사이렌만 옆에서 조용히 분위기 잡습니다.
 
 ## 6. 되돌리기
 
