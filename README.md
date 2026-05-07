@@ -24,12 +24,6 @@ npx --yes oh-my-statusline-install
 npx --yes oh-my-statusline-install --icons emoji
 ```
 
-이모지 + 진행률 바 버전:
-
-```sh
-npx --yes oh-my-statusline-install --icons emoji --bar emoji
-```
-
 설치 후 Claude Code를 새로 열면 적용됩니다.
 
 ## 2. GitHub에서 설치
@@ -69,7 +63,7 @@ node bin/install.js --local
 {
   "statusLine": {
     "type": "command",
-    "command": "npx --yes oh-my-statusline --icons emoji --bar emoji",
+    "command": "npx --yes oh-my-statusline --icons emoji",
     "padding": 0
   }
 }
@@ -95,16 +89,6 @@ node bin/install.js --local
 - `compact now`: 80% 이상
 
 이모지 모드에서는 `☕ good`, `👀 watch`, `🧹 compact soon`, `🚨 compact now`로 표시됩니다. 상태 메시지는 영어 그대로 둡니다. 커피, 눈치, 청소, 사이렌만 옆에서 조용히 분위기 잡습니다.
-
-진행률 바는 기본으로 숨깁니다. 보고 싶으면 `--bar block` 또는 `--bar emoji`를 붙이면 됩니다.
-
-```sh
-npx --yes oh-my-statusline-install --icons emoji --bar emoji
-```
-
-예시:
-
-🧠 Sonnet 4.5 │ 🛘 project │ 🍪 main* │ 💬 152k/200k 🟩🟩🟩🟩⬜ 76% │ 🧹 compact soon
 
 ## 6. 되돌리기
 

@@ -46,35 +46,3 @@ test("renders emoji icon set", () => {
 
   assert.equal(output, "🧠 Sonnet 4.5 │ 🛘 oh-my-statusline │ 🍪 main* │ 💬 124k/200k 62% │ 👀 watch");
 });
-
-test("renders block context bar", () => {
-  const output = renderStatusline({
-    model: { display_name: "Sonnet 4.5" },
-    workspace: { current_dir: "/Users/me/source/oh-my-statusline" },
-    git: { branch: "main", dirty: true },
-    context_window: {
-      total_input_tokens: 82000,
-      total_output_tokens: 2000,
-      context_window_size: 200000,
-      used_percentage: 42
-    }
-  }, { color: false, bar: "block" });
-
-  assert.equal(output, "⌘ Sonnet 4.5 │ ⌥ oh-my-statusline │ ⏎ main* │ Ctx 84k/200k ███░░░░░ 42% │ good");
-});
-
-test("renders emoji context bar", () => {
-  const output = renderStatusline({
-    model: { display_name: "Sonnet 4.5" },
-    workspace: { current_dir: "/Users/me/source/oh-my-statusline" },
-    git: { branch: "main", dirty: true },
-    context_window: {
-      total_input_tokens: 152000,
-      total_output_tokens: 0,
-      context_window_size: 200000,
-      used_percentage: 76
-    }
-  }, { color: false, icons: "emoji", bar: "emoji" });
-
-  assert.equal(output, "🧠 Sonnet 4.5 │ 🛘 oh-my-statusline │ 🍪 main* │ 💬 152k/200k 🟩🟩🟩🟩⬜ 76% │ 🧹 compact soon");
-});
