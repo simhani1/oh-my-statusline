@@ -26,7 +26,7 @@ const ICON_SETS = {
     model: "🧠",
     project: "🛘",
     git: "🍪",
-    context: "🪟",
+    context: "💬",
     status: {
       good: "☕ good",
       watch: "👀 watch",
